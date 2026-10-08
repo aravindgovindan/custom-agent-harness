@@ -6,6 +6,7 @@ import process from 'node:process';
 import {runAgent} from './agent.ts';
 import {runTui} from './tui/index.tsx';
 import type {AgentHooks, Message} from './types.ts';
+import { tools } from './tools.ts';
 
 async function main(): Promise<void> {
   // Keep one canonical workspace and conversation trace outside the TUI.
@@ -24,6 +25,7 @@ async function main(): Promise<void> {
       message,
       {...activeHooks, workspaceRoot},
       messages,
+      tools,
     );
     // Preserve the returned trace for the next submission.
     messages = result.messages;
