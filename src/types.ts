@@ -10,7 +10,7 @@ export interface ToolCall {
 export interface AssistantMessage {
     role: 'assistant';
     content: string | null;
-    toolCalls?: ToolCall[];
+    tool_calls?: ToolCall[];
 }
 
 export type Message = AssistantMessage |
@@ -61,6 +61,6 @@ export interface ChatCompletionResponse {
 }
 
 export interface AgentRunResult {
-    message: Message[];
+    messages: Message[];
     answer: string;
 }
